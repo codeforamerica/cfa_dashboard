@@ -8,9 +8,11 @@ Currently, this app is using [Dashing](http://shopify.github.com/dashing/), a Si
 #Dashboards
 ##2013 Fellows
 The first dashboard I (Moncef) created was a proof of concept. It has 3 widgets:
-1. The top 10 2013 Fellows who tweet the most, updated daily
-2. A collection of tweets tagged with #cfa2013, updated every 10 minutes
-3. A random fun fact pulled every minute from [randomfunfacts.com](http://www.randomfunfacts.com). You can view it here: 
+  1. The top 10 2013 Fellows who tweet the most, updated daily
+  2. A collection of tweets tagged with #cfa2013, updated every 10 minutes
+  3. A random fun fact pulled every minute from [randomfunfacts.com](http://www.randomfunfacts.com). 
+
+You can view it here: [http://cfa-dashboard.herokuapp.com/fellows](http://cfa-dashboard.herokuapp.com/fellows)
 
 
 The Top 10 grabs the Fellows' Twitter usernames from the [CfA API](https://github.com/codeforamerica/cfa_api).
