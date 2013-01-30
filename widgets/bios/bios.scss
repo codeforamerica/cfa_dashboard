@@ -1,0 +1,61 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #111;
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-comment styles
+// ----------------------------------------------------------------------------
+.widget-bios {
+
+  background-color: $background-color;
+  h1.fellow{
+    width:550px;
+    float:left;
+  }
+ 
+  .title {
+    color: $title-color;
+    margin-bottom: 95px;
+  }
+  img{
+    padding:15px;
+    border: solid 10px #fff;
+    margin-left:200px;
+  }
+
+  .name {
+    padding-left: 5px;
+    font-size:60px;
+    margin-bottom:-15px;
+  }
+  .city {
+    padding-left: 5px;
+    font-size:30px;
+    margin-bottom:45px;
+  }
+  .content{
+  margin-top:-20px;
+    width:550px;
+    float:right;
+    margin-right:80px;
+    text-align:left;
+  }
+  p.comment{
+    font-size:30px;
+
+    text-align:left;
+  }
+
+  .comment-container {
+    display: none;
+  }
+
+  .more-info {
+    color: $moreinfo-color;
+  }
+
+}
