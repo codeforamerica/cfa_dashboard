@@ -9,6 +9,7 @@ configure do
      # This method is run before accessing any resource.
     end
   end
+  set :protection, :except => :frame_options
 end
 
 map Sinatra::Application.assets_prefix do
