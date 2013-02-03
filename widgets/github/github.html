@@ -1,0 +1,13 @@
+<h1 class="title" data-bind="title"></h1>
+<div class="comment-container">
+  <h3><span data-bind='current_comment.name' class="name"></span></h3>
+  <p class="comment">
+  	<span class="comment" data-bind='current_comment.activity'></span>
+  	<span class="subject" data-bind='current_comment.subject'></span>
+  	<span class="comment" data-bind='current_comment.preposition'></span>
+  	<span class="subject" data-bind='current_comment.url'></span>
+	</p>
+  <p class="comment" data-bind='quote'></p>
+</div>
+
+<p class="more-info" data-bind="moreinfo | raw"></p>
