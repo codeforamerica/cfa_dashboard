@@ -34,7 +34,6 @@ SCHEDULER.every '10m', :first_in => 0 do |job|
 			number = event["payload"]["issue"]["number"]
 			issue = "#{repo}##{number}"
 			message = event["payload"]["issue"]["title"]
-			event = "#{type} #{issue}:"
 			activities.push({name: actor, activity: activity, subject: "#{issue}:", body: message})
 		end
 	end
