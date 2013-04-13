@@ -13,7 +13,7 @@ class Dashing.Bios extends Dashing.Widget
     @currentIndex = 0
 
   startCarousel: ->
-    setInterval(@nextComment, 15000)
+    setInterval(@nextComment, 7000)
 
   nextComment: =>
     comments = @get('comments')

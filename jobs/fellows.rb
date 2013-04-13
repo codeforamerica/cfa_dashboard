@@ -1,8 +1,6 @@
 require 'net/http'
 require 'json'
 
-search_term = URI::encode('#cfa2013')
-
 SCHEDULER.every '10m', :first_in => 0 do |job|
   http = Net::HTTP.new('cfa-api.herokuapp.com')
   response = http.request(Net::HTTP::Get.new("/v0/fellows"))
