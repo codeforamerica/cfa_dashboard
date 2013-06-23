@@ -1,17 +1,22 @@
-require 'net/http'
-require 'json'
+require 'twitter'
 
-search_term = URI::encode('#cfa2013')
+Twitter.configure do |config|
+  config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
+  config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
+  config.oauth_token = ENV["TWITTER_OAUTH_TOKEN"]
+  config.oauth_token_secret = ENV["TWITTER_OAUTH_TOKEN_SECRET"]
+end
+
+tweets = []
 
 SCHEDULER.every '10m', :first_in => 0 do |job|
-  http = Net::HTTP.new('search.twitter.com')
-  response = http.request(Net::HTTP::Get.new("/search.json?q=#{search_term}"))
-  tweets = JSON.parse(response.body)["results"]
-  if tweets
-    tweets.map! do |tweet| 
-      { name: tweet['from_user'], body: tweet['text'], avatar: tweet['profile_image_url_https'] }
+  results = Twitter.search("#cfa2013").results
+  if results
+    results.each do |tweet|
+      tweets.push({ name: tweet.from_user,
+                    body: tweet.text,
+                    avatar: tweet.profile_image_url_https })
     end
-  
     send_event('cfa2013_hashtag', comments: tweets)
   end
 end

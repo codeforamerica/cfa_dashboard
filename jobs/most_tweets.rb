@@ -15,9 +15,9 @@ http = Net::HTTP.new('cfa-api.herokuapp.com')
 response = http.request(Net::HTTP::Get.new("/v0/fellows"))
 all_fellows_json = JSON.parse(response.body)
 if all_fellows_json
-  all_fellows_json.each do |fellow| 
+  all_fellows_json.each do |fellow|
     twitter_username = fellow['fellow']['twitter']
-    twitter_usernames.push(twitter_username)
+    twitter_usernames.push(twitter_username) unless twitter_username == "ajones446"
   end
 end
 
@@ -29,14 +29,14 @@ SCHEDULER.every '1d', :first_in => 0 do |job|
   	total_tweets = Twitter.user(twitter_username).statuses_count
   	fellows[twitter_username] = { label: twitter_username, value: total_tweets }
   end
-  
+
   #sort by most tweets
   sorted = fellows.sort_by { |k,v| -v[:value] } # this is an array
   top_10 = sorted[0..9] # this is an array
 
   #convert array to hash
   top_10_hash = Hash[*top_10.flatten]
-  
+
   send_event('most_tweets', { items: top_10_hash.values })
 
 end

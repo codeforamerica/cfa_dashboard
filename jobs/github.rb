@@ -9,12 +9,12 @@ SCHEDULER.every '10m', :first_in => 0 do |job|
 
 	cfa = Github.activity.events.org 'codeforamerica'
 
-	cfa.each do |event| 
+	cfa.each do |event|
 		actor = event["actor"]["login"]
 		type = event["type"]
 		repo = event["repo"]["name"]
 
-		if type == "PushEvent" 
+		if type == "PushEvent"
 			activity = "pushed to"
 			branch = event["payload"]["ref"].split("refs/heads/")[1]
 			message = event["payload"]["commits"].first["message"]
